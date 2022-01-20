@@ -12,6 +12,11 @@ const resultDivided = document.getElementById('result-area');
 let colorCodeColor = "#";
 // 文字色を背景色の補色にするための計算関数
 function moji() {
+    if(colorCodeInput.value==="#000000"){
+        colorCodeColor = "#ffffff";
+    }else if(colorCodeInput.value==="#ffffff"){
+        colorCodeColor = "#000000";
+    }else{
     let ary_16 = [];
     for(let i=1; i<colorCodeInput.value.length; i += 2){
     // 2文字ずつの16進数に分ける
@@ -33,6 +38,7 @@ function moji() {
     colorCodeColor = ary_16.reduce(calc, "#");
     ary_16.length = 0;
     ary_10.length = 0;
+    }
 }
 
 
@@ -83,6 +89,7 @@ function sound(){
     }
 }
 
+
 // ボタンがクリックされたときの動き
 assessmentButton.onclick = () => {
     // エラー処理
@@ -92,11 +99,6 @@ assessmentButton.onclick = () => {
         paragraph.innerText = "文字数が足りません";
         paragraph.style.color = "red";
         resultDivided.appendChild(paragraph);
-        console.log(encodeURIComponent("a"));
-        console.log(encodeURIComponent("b"));
-        console.log(encodeURIComponent("c"));
-        console.log(encodeURIComponent("d"));
-        console.log(encodeURIComponent("e"));
     // #を含めて文字数が8文字以上なら、"文字数が多すぎます"と表示する
     // "#","0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"以外の文字が入力されていたら"不適切な文字が入力されています"と表示する
     
@@ -116,6 +118,7 @@ assessmentButton.onclick = () => {
     paragraph.style.backgroundColor = colorCodeInput.value;
     // 文字の表示
     paragraph.innerText = colorCodeInput.value;
+    console.log(colorCodeColor);
     paragraph.style.color = colorCodeColor;
     // 音が流れる
     sound();
@@ -126,5 +129,3 @@ assessmentButton.onclick = () => {
     colorCodeInput.focus();
     }
 }
-
-
