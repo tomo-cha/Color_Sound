@@ -12,6 +12,7 @@ const resultDivided = document.getElementById('result-area');
 let colorCodeColor = "#";
 // 文字色を背景色の補色にするための計算関数
 function moji() {
+    colorCodeColor = "#";
     if(colorCodeInput.value==="#000000"){
         colorCodeColor = "#ffffff";
     }else if(colorCodeInput.value==="#ffffff"){
@@ -92,8 +93,11 @@ function sound(){
 
 // ボタンがクリックされたときの動き
 assessmentButton.onclick = () => {
+    // 文字色の決定
+    moji();
     // エラー処理
-    if(colorCodeColor.includes("N")){
+    // "#","0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"以外の文字が入力されていたら"使用できない文字が含まれています"と表示する
+    if(colorCodeColor==="#NaNNaNNaN"){
         const paragraph = document.createElement('p');
         paragraph.innerText = "使用できない文字が含まれています";
         paragraph.style.color = "red";
@@ -107,7 +111,7 @@ assessmentButton.onclick = () => {
             paragraph.innerText = "文字数が足りません";
             paragraph.style.color = "red";
             resultDivided.appendChild(paragraph);
-        
+            console.log(colorCodeColor);
     
         }
         // #を含めて文字数が8文字以上なら、"文字数が多すぎます"と表示する
@@ -116,16 +120,14 @@ assessmentButton.onclick = () => {
             paragraph.innerText = "文字数が多すぎます";
             paragraph.style.color = "red";
             resultDivided.appendChild(paragraph);
-        // "#","0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"以外の文字が入力されていたら"使用できない文字が含まれています"と表示する
+            console.log(colorCodeColor);
         }else{
-        // 文字色の決定
-        moji();
+        
         const paragraph = document.createElement('p');
         // 背景色
         paragraph.style.backgroundColor = colorCodeInput.value;
         // 文字の表示
         paragraph.innerText = colorCodeInput.value;
-        console.log(colorCodeColor);
         paragraph.style.color = colorCodeColor;
         // 音が流れる
         sound();
@@ -134,6 +136,7 @@ assessmentButton.onclick = () => {
         // #だけを残してカーソルをもういちど入力欄におく
         colorCodeInput.value = "#";
         colorCodeInput.focus();
+        console.log(colorCodeColor);
         }
     }
     
