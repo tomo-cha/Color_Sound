@@ -5,7 +5,7 @@ const colorCodeInput = document.getElementById('colorCode');
 // ボタン
 const assessmentButton = document.getElementById('assessment');
 // 結果表示エリア
-const resultDivided = document.getElementById('result-area');
+const resultDivided = document.getElementById('resultArea');
 
 
 // 文字色用の変数
@@ -120,6 +120,7 @@ assessmentButton.onclick = () => {
         const paragraph = document.createElement('p');
         // 背景色
         paragraph.style.backgroundColor = colorCodeInput.value;
+        paragraph.classList.add("paragraph")
         // 文字の表示
         paragraph.innerText = colorCodeInput.value;
         paragraph.style.color = colorCodeColor;

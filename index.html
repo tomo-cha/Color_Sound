@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./favicon.ico">
-    <link rel="stylesheet" href="./color-sound.css">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="/destly.css">
+    <link rel="stylesheet" href="/color-sound.css">
     <title>Color-Sound</title>
 </head>
 <body>
     <h1>この色の音はなんじゃろな？</h1>
     <p>調べたい6桁のカラーコードを「#を含めて」入力してください</p>
-    <input type="text" id="colorCode" size="40" maxlength="20" value="#" />
+    <input type="text" id="colorCode" class="color_code" size="40" maxlength="20" value="#" />
     <button id="assessment">調べる</button>
-    <div id="result-area"></div>
+    <div id="resultArea" class="result_area"></div>
     <script src="./color-sound.js"></script>
 </body>
 </html>
