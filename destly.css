@@ -2,7 +2,7 @@
 
 /* Reset box-model and set borders */
 /* ============================================ */
-
+@media screen and (min-width:480px) {
 *,
 ::before,
 ::after {
@@ -418,4 +418,5 @@ th {
 th {
   text-align: left;
   font-weight: bold;
+}
 }
