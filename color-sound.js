@@ -86,31 +86,35 @@ function sound(){
 }
 
 
+// エラー文用の追加パラグラフ
+const errorParagraph = document.createElement('p');
 // ボタンがクリックされたときの動き
 assessmentButton.onclick = () => {
     // 文字色の決定
     moji();
-    // エラー処理
+    // エラー処理①
     // "#","0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"以外の文字が入力されていたら"使用できない文字が含まれています"と表示する
     if(colorCodeColor==="#NaNNaNNaN"){
-        const paragraph = document.createElement('p');
-        paragraph.innerText = "使用できない文字が含まれています";
-        paragraph.style.color = "red";
-        resultDivided.appendChild(paragraph);
+        // const errorParagraph = document.createElement('p');
+        errorParagraph.innerText = "使用できない文字が含まれています";
+        errorParagraph.style.color = "red";
+        resultDivided.appendChild(errorParagraph);
     }else{
+        // エラー処理②
         // #を含めて文字数が6文字以下なら、"文字数が足りません"と表示する
         if(colorCodeInput.value.length<7){
-            const paragraph = document.createElement('p');
-            paragraph.innerText = "文字数が足りません";
-            paragraph.style.color = "red";
-            resultDivided.appendChild(paragraph);
+            // const errorParagraph = document.createElement('p');
+            errorParagraph.innerText = "文字数が足りません";
+            errorParagraph.style.color = "red";
+            resultDivided.appendChild(errorParagraph);
         }
+        // エラー処理③
         // #を含めて文字数が8文字以上なら、"文字数が多すぎます"と表示する
         else if(colorCodeInput.value.length>7){
-            const paragraph = document.createElement('p');
-            paragraph.innerText = "文字数が多すぎます";
-            paragraph.style.color = "red";
-            resultDivided.appendChild(paragraph);
+            // const errorParagraph = document.createElement('p');
+            errorParagraph.innerText = "文字数が多すぎます";
+            errorParagraph.style.color = "red";
+            resultDivided.appendChild(errorParagraph);
         }else{
         
         const paragraph = document.createElement('p');
@@ -121,8 +125,9 @@ assessmentButton.onclick = () => {
         paragraph.style.color = colorCodeColor;
         // 音が流れる
         sound();
-        // 要素の追加
+        // 要素の追加とエラー文の削除
         resultDivided.appendChild(paragraph);
+        errorParagraph.remove();
         // #だけを残してカーソルをもういちど入力欄におく
         colorCodeInput.value = "#";
         colorCodeInput.focus();
