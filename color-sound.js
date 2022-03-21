@@ -116,7 +116,6 @@ assessmentButton.onclick = () => {
             errorParagraph.style.color = "red";
             resultDivided.appendChild(errorParagraph);
         }else{
-        
         const paragraph = document.createElement('p');
         // 背景色
         paragraph.style.backgroundColor = colorCodeInput.value;
