@@ -10,11 +10,16 @@
     <title>Color-Sound</title>
 </head>
 <body>
-    <h1>この色の音はなんじゃろな？</h1>
-    <p>調べたい6桁のカラーコードを「#を含めて」入力してください</p>
-    <input type="text" id="colorCode" class="color_code" size="40" maxlength="20" value="#" />
-    <button id="assessment">調べる</button>
-    <div id="resultArea" class="result_area"></div>
-    <script src="./color-sound.js"></script>
+    <header></header>
+    <main>
+        <h1 class="title">この色の音はなんじゃろな？</h1>
+        <p class="manual">調べたい6桁のカラーコードを「#を含めて」入力してください。</p>
+        <div class="wrapper">
+            <input type="text" id="colorCode" class="color_code" size="40" maxlength="20" value="#" />
+            <button id="assessment" class="checkButton">調べる</button>
+        </div>
+        <div id="resultArea" class="result_area"></div>
+        <script src="./color-sound.js"></script>
+    </main>
 </body>
 </html>
