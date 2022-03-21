@@ -1,33 +1,61 @@
 body{
     background-color: #b3d4fc;
 }
-@media screen and (min-width:480px) {
-h1{
-    font-size: 7vw;
-    margin: 20px 0px 20px 20px;
+@media screen and (min-width:375px) {
+main{
+    padding: 20px;
 }
-p{
-    margin-left: 20px;
+.title{
+    font-size: 48px;
+    margin: 0;
 }
-input{
-    margin: 20px 0px 20px 20px;
+.title{
+    animation-name:blurAnime;
+    animation-duration:1s;
+    animation-fill-mode:forwards;
+}
+@keyframes blurAnime{
+    from {
+    filter: blur(10px);
+    transform: scale(1.02);
+    }
+    to {
+    filter: blur(0);
+    transform: scale(1);
+    }
+}
+.manual{
+    font-size: 16px;
+    margin-top: 20px;
+}
+.wrapper{
+    margin-top: 20px;
+}
+.color_code{
     border: solid 1px rgba(0,0,0,.6);
     border-radius: 2px ;
     background-color: #ffffff;
 }
-button{
-    width: 3.5rem;
-    height: 1.4rem;
+.checkButton{
     text-align: center;
     background-color: #ffffff;
     border: solid 1px rgba(0,0,0,.6);
     border-radius: 2px;
 }
-.paragraph{
-    display: inline-block;
-    width: 6rem;
-    height: 2rem;
-    text-align: center;
-    padding-top: 0.4rem;
+.result_area{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    /* ネガティブmargin */
+    margin-left: -5px;
 }
+.paragraph{
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: 5px;
+    padding: 3px;
+    text-align: center;
+}
+
+
 }
